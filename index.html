@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDITAR AQUÍ: Título que aparece en la pestaña del navegador -->
+  <title>Feliz Primer Mes ❤️</title>
+
+  <!-- Google Fonts: Playfair Display (títulos), Caveat (manuscrita) y Poppins (cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       PALETA DE COLORES Y TIPOGRAFÍA (FÁCIL DE PERSONALIZAR)
+       Podés cambiar cualquiera de estos códigos de color para adaptar el estilo.
+       ========================================================================== */
+    :root {
+      /* Colores principales */
+      --bg-crema: #FDF8F5;          /* Fondo general crema suave */
+      --bg-crema-alt: #F8EFEA;      /* Fondo alternativo para secciones */
+      --blanco: #FFFFFF;            /* Fondo de tarjetas y polaroids */
+      --rosa-empolvado: #D48C84;    /* Acento romántico principal */
+      --rosa-claro: #EED5D0;        /* Bordes suaves y detalles del sobre */
+      --borgona: #6B2D38;           /* Acento elegante oscuro (títulos y botones) */
+      --borgona-hover: #53202A;     /* Color al pasar el mouse sobre botones */
+      --texto-oscuro: #3A2E2E;      /* Texto principal gris cálido oscuro */
+      --texto-suave: #6F5E5E;       /* Subtítulos y fechas */
+
+      /* Sombras y bordes */
+      --sombra-suave: 0 10px 30px rgba(107, 45, 56, 0.08);
+      --sombra-elevada: 0 18px 40px rgba(107, 45, 56, 0.16);
+      --radio-tarjeta: 18px;
+
+      /* Fuentes */
+      --fuente-titulo: 'Playfair Display', Georgia, serif;
+      --fuente-mano: 'Caveat', cursive;
+      --fuente-cuerpo: 'Poppins', sans-serif;
+    }
+
+    /* ==========================================================================
+       ESTILOS BASE Y RESET
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en los enlaces */
+    }
+
+    body {
+      font-family: var(--fuente-cuerpo);
+      background-color: var(--bg-crema);
+      color: var(--texto-oscuro);
+      line-height: 1.7;
+      overflow-x: hidden; /* Evita scroll horizontal en celulares */
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--fuente-titulo);
+      color: var(--borgona);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Contenedor general para centrar el contenido */
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Estilos comunes para cada sección */
+    section {
+      padding: 90px 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 56px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rosa-empolvado);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4.5vw, 2.8rem);
+      margin-bottom: 14px;
+    }
+
+    .section-desc {
+      color: var(--texto-suave);
+      font-size: 0.98rem;
+    }
+
+    /* Separador decorativo con corazón */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      height: 1px;
+      width: 48px;
+      background: linear-gradient(90deg, transparent, var(--rosa-empolvado), transparent);
+    }
+
+    .divider svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--rosa-empolvado);
+    }
+
+    /* ==========================================================================
+       NAVEGACIÓN SUPERIOR SUTIL
+       ========================================================================== */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(253, 248, 245, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212, 140, 132, 0.2);
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      font-family: var(--fuente-mano);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--borgona);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--texto-oscuro);
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--rosa-empolvado);
+    }
+
+    /* ==========================================================================
+       1. PORTADA (HERO) CON CORAZONES FLOTANTES
+       ========================================================================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background: radial-gradient(circle at top right, #F7E4DF 0%, var(--bg-crema) 50%, #F9ECE8 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      animation: fadeUp 1.1s ease-out both;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--rosa-claro);
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--borgona);
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(107, 45, 56, 0.06);
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      font-weight: 700;
+      color: var(--borgona);
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-subtitle {
+      font-family: var(--fuente-mano);
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      color: var(--rosa-empolvado);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .hero-quote {
+      font-size: 1.05rem;
+      color: var(--texto-suave);
+      max-width: 520px;
+      margin: 0 auto 38px;
+      font-style: italic;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--borgona);
+      color: var(--blanco);
+      padding: 15px 34px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      box-shadow: 0 10px 24px rgba(107, 45, 56, 0.25);
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--borgona-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(107, 45, 56, 0.32);
+    }
+
+    .btn-primary svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-primary:hover svg {
+      transform: translateY(3px);
+    }
+
+    /* Corazones flotantes en el fondo (CSS puro) */
+    .floating-hearts {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .heart-particle {
+      position: absolute;
+      bottom: -40px;
+      color: var(--rosa-empolvado);
+      opacity: 0;
+      animation: floatUp linear infinite;
+      user-select: none;
+    }
+
+    .heart-particle:nth-child(1)  { left: 8%;  font-size: 16px; animation-duration: 11s; animation-delay: 0s; }
+    .heart-particle:nth-child(2)  { left: 18%; font-size: 24px; animation-duration: 14s; animation-delay: 2s; }
+    .heart-particle:nth-child(3)  { left: 29%; font-size: 14px; animation-duration: 10s; animation-delay: 4s; }
+    .heart-particle:nth-child(4)  { left: 42%; font-size: 20px; animation-duration: 15s; animation-delay: 1s; }
+    .heart-particle:nth-child(5)  { left: 56%; font-size: 18px; animation-duration: 12s; animation-delay: 3s; }
+    .heart-particle:nth-child(6)  { left: 68%; font-size: 26px; animation-duration: 16s; animation-delay: 0.5s; }
+    .heart-particle:nth-child(7)  { left: 79%; font-size: 15px; animation-duration: 11s; animation-delay: 5s; }
+    .heart-particle:nth-child(8)  { left: 88%; font-size: 22px; animation-duration: 13s; animation-delay: 2.5s; }
+    .heart-particle:nth-child(9)  { left: 94%; font-size: 14px; animation-duration: 9s;  animation-delay: 1.5s; }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.8);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.35;
+      }
+      80% {
+        opacity: 0.25;
+      }
+      100% {
+        transform: translateY(-105vh) rotate(25deg) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ==========================================================================
+       2. CARTA EN SOBRE INTERACTIVO (CSS PURO CON CHECKBOX OCULTO)
+       ========================================================================== */
+    .letter-section {
+      background-color: var(--bg-crema-alt);
+    }
+
+    .envelope-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* Checkbox oculto que controla si el sobre está abierto o cerrado */
+    .envelope-toggle {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .envelope-wrapper {
+      width: 100%;
+      max-width: 460px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* El sobre interactivo */
+    .envelope-label {
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .envelope-box {
+      position: relative;
+      width: 100%;
+      height: 270px;
+      background: #EBC8C1;
+      border-radius: 12px;
+      box-shadow: var(--sombra-elevada);
+      perspective: 1000px;
+      transition: transform 0.35s ease;
+    }
+
+    .envelope-label:hover .envelope-box {
+      transform: translateY(-4px);
+    }
+
+    /* Solapa superior del sobre */
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      background: #E2B3AA;
+      clip-path: polygon(0 0, 50% 92%, 100% 0);
+      transform-origin: top center;
+      transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.3s;
+      z-index: 4;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    /* Bolsillo frontal (triángulos izquierdo, derecho e inferior) */
+    .envelope-pocket {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      border-radius: 12px;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .envelope-pocket::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #F4DCD7;
+      clip-path: polygon(0 0, 50% 54%, 0 100%);
+    }
+
+    .envelope-pocket::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #F0D2CC;
+      clip-path: polygon(100% 0, 50% 54%, 100% 100%);
+    }
+
+    .envelope-bottom {
+      position: absolute;
+      inset: 0;
+      background: #F7E5E1;
+      clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+      z-index: 3;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      pointer-events: none;
+    }
+
+    /* Sello de cera con corazón en el centro del sobre */
+    .wax-seal {
+      position: absolute;
+      top: 112px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #8C3B4A, var(--borgona));
+      box-shadow: 0 6px 14px rgba(107, 45, 56, 0.35), inset 0 2px 4px rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      transition: transform 0.45s ease, opacity 0.4s ease;
+    }
+
+    .wax-seal svg {
+      width: 24px;
+      height: 24px;
+      fill: #FDF8F5;
+    }
+
+    /* Pequeño borde de carta asomando dentro del sobre */
+    .letter-peek {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      bottom: 14px;
+      height: 210px;
+      background: var(--blanco);
+      border-radius: 8px;
+      z-index: 2;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 26px;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+    }
+
+    .letter-peek span {
+      font-family: var(--fuente-mano);
+      font-size: 1.4rem;
+      color: var(--rosa-empolvado);
+    }
+
+    /* Indicador de acción debajo del sobre */
+    .envelope-hint {
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--borgona);
+      background: var(--blanco);
+      padding: 10px 22px;
+      border-radius: 999px;
+      box-shadow: var(--sombra-suave);
+      transition: all 0.3s ease;
+    }
+
+    .hint-close {
+      display: none;
+    }
+
+    /* Hoja de la carta completa que se despliega suavemente */
+    .letter-sheet {
+      width: 100%;
+      max-width: 600px;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(-24px) scale(0.97);
+      transition:
+        max-height 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.6s ease 0.15s,
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
+        margin-top 0.6s ease;
+    }
+
+    .letter-paper {
+      background: var(--blanco);
+      border-radius: var(--radio-tarjeta);
+      padding: clamp(28px, 5vw, 48px);
+      box-shadow: var(--sombra-elevada);
+      border: 1px solid rgba(212, 140, 132, 0.28);
+      position: relative;
+    }
+
+    /* Detalle decorativo superior en la hoja */
+    .letter-paper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 4px;
+      background: var(--rosa-empolvado);
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    .letter-date {
+      font-size: 0.85rem;
+      color: var(--rosa-empolvado);
+      text-align: right;
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+
+    .letter-salutation {
+      font-family: var(--fuente-titulo);
+      font-size: 1.55rem;
+      color: var(--borgona);
+      margin-bottom: 18px;
+    }
+
+    .letter-body p {
+      margin-bottom: 16px;
+      font-size: 0.98rem;
+      color: var(--texto-oscuro);
+    }
+
+    .letter-signature {
+      margin-top: 28px;
+      text-align: right;
+    }
+
+    .letter-signature span {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--texto-suave);
+    }
+
+    .letter-signature .handwritten-name {
+      font-family: var(--fuente-mano);
+      font-size: 2.2rem;
+      color: var(--borgona);
+      line-height: 1.1;
+      margin-top: 4px;
+    }
+
+    /* ESTADO ABIERTO DEL SOBRE (cuando el checkbox está marcado) */
+    .envelope-toggle:checked ~ .envelope-wrapper .envelope-flap {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
+    .envelope-toggle:checked ~ .envelope-wrapper .wax-seal {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    .envelope-toggle:checked ~ .envelope-wrapper .letter-peek {
+      transform: translateY(-48px);
+    }
+
+    .envelope-toggle:checked ~ .envelope-wrapper .hint-open {
+      display: none;
+    }
+
+    .envelope-toggle:checked ~ .envelope-wrapper .hint-close {
+      display: inline;
+    }
+
+    .envelope-toggle:checked ~ .letter-sheet {
+      max-height: 1400px; /* Espacio de sobra para cartas largas */
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      margin-top: 32px;
+    }
+
+    /* ==========================================================================
+       3. NUESTRA HISTORIA (LÍNEA DE TIEMPO VERTICAL)
+       ========================================================================== */
+    .timeline {
+      position: relative;
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 10px 0;
+    }
+
+    /* Línea vertical central */
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--rosa-empolvado) 10%, var(--rosa-empolvado) 90%, transparent);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 0 40px 48px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    /* Alternar izquierda y derecha en computadora */
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+    }
+
+    /* Punto circular sobre la línea */
+    .timeline-dot {
+      position: absolute;
+      top: 22px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--blanco);
+      border: 4px solid var(--borgona);
+      box-shadow: 0 0 0 5px var(--bg-crema);
+      z-index: 2;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -9px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -9px;
+    }
+
+    .timeline-card {
+      background: var(--blanco);
+      border-radius: var(--radio-tarjeta);
+      padding: 26px 28px;
+      box-shadow: var(--sombra-suave);
+      border: 1px solid rgba(212, 140, 132, 0.16);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sombra-elevada);
+    }
+
+    .timeline-date {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--borgona);
+      background: var(--bg-crema-alt);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .timeline-card p {
+      font-size: 0.94rem;
+      color: var(--texto-suave);
+    }
+
+    /* ==========================================================================
+       4. GALERÍA DE RECUERDOS (ESTILO POLAROID)
+       ========================================================================== */
+    .gallery-section {
+      background-color: var(--bg-crema-alt);
+    }
+
+    .polaroid-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      padding: 12px 0;
+    }
+
+    .polaroid {
+      background: var(--blanco);
+      padding: 14px 14px 26px;
+      border-radius: 6px;
+      box-shadow: 0 12px 26px rgba(58, 46, 46, 0.11);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+      position: relative;
+    }
+
+    /* Inclinaciones sutiles distintas para cada polaroid */
+    .polaroid:nth-child(1) { transform: rotate(-2.5deg); }
+    .polaroid:nth-child(2) { transform: rotate(2deg) translateY(8px); }
+    .polaroid:nth-child(3) { transform: rotate(-1.8deg); }
+    .polaroid:nth-child(4) { transform: rotate(2.4deg) translateY(6px); }
+
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.06) translateY(-6px);
+      box-shadow: 0 22px 42px rgba(107, 45, 56, 0.2);
+      z-index: 10;
+    }
+
+    .polaroid-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 3px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+    }
+
+    /* Cuando agregues una etiqueta <img> real, se ajustará automáticamente */
+    .polaroid-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Fondos suaves de marcador de posición (se ven mientras no haya foto) */
+    .placeholder-1 { background: linear-gradient(135deg, #F6E2DD 0%, #E7BEB6 100%); }
+    .placeholder-2 { background: linear-gradient(135deg, #F4E8E1 0%, #DFC0B4 100%); }
+    .placeholder-3 { background: linear-gradient(135deg, #EFE0E4 0%, #D9B3BE 100%); }
+    .placeholder-4 { background: linear-gradient(135deg, #F7E9DF 0%, #E3C2B0 100%); }
+
+    .placeholder-icon {
+      width: 42px;
+      height: 42px;
+      stroke: var(--borgona);
+      opacity: 0.65;
+    }
+
+    .placeholder-text {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--borgona);
+      opacity: 0.8;
+    }
+
+    .polaroid-caption {
+      font-family: var(--fuente-mano);
+      font-size: 1.45rem;
+      color: var(--texto-oscuro);
+      text-align: center;
+      margin-top: 16px;
+      line-height: 1.2;
+    }
+
+    /* ==========================================================================
+       5. RAZONES POR LAS QUE TE AMO (TARJETAS 3D FLIP)
+       ========================================================================== */
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    /* Contenedor con perspectiva 3D y soporte táctil mediante checkbox oculto */
+    .flip-card {
+      display: block;
+      perspective: 1100px;
+      height: 240px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .flip-checkbox {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Gira al hacer clic/tocar en celular o computadora */
+    .flip-checkbox:checked + .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* También gira al pasar el mouse en dispositivos con cursor */
+    @media (hover: hover) {
+      .flip-card:hover .flip-inner {
+        transform: rotateY(180deg);
+      }
+    }
+
+    .flip-front,
+    .flip-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: var(--radio-tarjeta);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: var(--sombra-suave);
+    }
+
+    /* Frente de la tarjeta */
+    .flip-front {
+      background: var(--blanco);
+      border: 1px solid rgba(212, 140, 132, 0.25);
+    }
+
+    .reason-number {
+      font-family: var(--fuente-titulo);
+      font-size: 2.2rem;
+      color: var(--rosa-empolvado);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .reason-icon {
+      width: 34px;
+      height: 34px;
+      stroke: var(--borgona);
+      margin-bottom: 12px;
+    }
+
+    .flip-front-hint {
+      font-size: 0.78rem;
+      color: var(--texto-suave);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* Reverso de la tarjeta */
+    .flip-back {
+      background: linear-gradient(145deg, var(--borgona), #833846);
+      color: var(--blanco);
+      transform: rotateY(180deg);
+    }
+
+    .flip-back p {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: #FDF8F5;
+    }
+
+    .flip-back-heart {
+      margin-top: 14px;
+      font-size: 1.1rem;
+      opacity: 0.85;
+    }
+
+    /* ==========================================================================
+       6. PIE DE PÁGINA (FOOTER)
+       ========================================================================== */
+    footer {
+      background-color: var(--borgona);
+      color: #F6E6E2;
+      text-align: center;
+      padding: 56px 24px;
+    }
+
+    .footer-heart {
+      display: inline-block;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      animation: heartbeat 1.8s ease-in-out infinite;
+    }
+
+    .footer-message {
+      font-family: var(--fuente-titulo);
+      font-size: 1.5rem;
+      color: var(--blanco);
+      margin-bottom: 8px;
+    }
+
+    .footer-year {
+      font-size: 0.88rem;
+      opacity: 0.8;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.16); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.1); }
+    }
+
+    /* ==========================================================================
+       DISEÑO RESPONSIVO (TABLET Y CELULAR)
+       ========================================================================== */
+    @media (max-width: 960px) {
+      .polaroid-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .reasons-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      section {
+        padding: 70px 0;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+      }
+
+      /* Línea de tiempo en una sola columna en celular */
+      .timeline::before {
+        left: 20px;
+        transform: none;
+      }
+
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding: 0 0 36px 52px;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-dot,
+      .timeline-item:nth-child(even) .timeline-dot {
+        left: 12px;
+        right: auto;
+      }
+
+      .envelope-box {
+        height: 230px;
+      }
+
+      .envelope-flap {
+        height: 128px;
+      }
+
+      .wax-seal {
+        top: 96px;
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav-inner {
+        justify-content: center;
+      }
+
+      .nav-brand {
+        display: none; /* Da más espacio a los enlaces en pantallas muy pequeñas */
+      }
+
+      .polaroid-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .reasons-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       NAVEGACIÓN SUPERIOR
+       ======================================================================== -->
+  <nav class="top-nav" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <!-- EDITAR AQUÍ: Iniciales o nombre corto -->
+      <a href="#inicio" class="nav-brand">A &amp; M</a>
+      <ul class="nav-links">
+        <li><a href="#carta">Carta</a></li>
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#recuerdos">Recuerdos</a></li>
+        <li><a href="#razones">Razones</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       1. PORTADA (HERO)
+       ======================================================================== -->
+  <header id="inicio" class="hero">
+    <!-- Corazones sutiles flotando (CSS puro) -->
+    <div class="floating-hearts" aria-hidden="true">
+      <span class="heart-particle">♥</span>
+      <span class="heart-particle">♥</span>
+      <span class="heart-particle">♥</span>
+      <span class="heart-particle">♥</span>
+      <span class="heart-particle">♥</span>
+      <span class="heart-particle">♥</span>
+      <span class="heart-particle">♥</span>
+      <span class="heart-particle">♥</span>
+      <span class="heart-particle">♥</span>
+    </div>
+
+    <div class="hero-content">
+      <!-- EDITAR AQUÍ: Cantidad de años o meses celebrados -->
+      <div class="hero-badge">✨ Celebrando nuestro amor ✨</div>
+
+      <h1 class="hero-title">Feliz Primer Mes</h1>
+
+      <!-- EDITAR AQUÍ: Tus nombres y la fecha de aniversario -->
+      <p class="hero-subtitle">Rocio &amp; Matias &bull; 30 de Noviembre</p>
+
+      <!-- EDITAR AQUÍ: Frase corta romántica de bienvenida -->
+      <p class="hero-quote">
+        “Gracias por ser la mejor parte de mi día.”
+      </p>
+
+      <a href="#carta" class="btn-primary">
+        Leer mi carta
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M19 12l-7 7-7-7"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         2. CARTA EN SOBRE INTERACTIVO (CSS PURO)
+         ====================================================================== -->
+    <section id="carta" class="letter-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Para vos</span>
+          <h2 class="section-title">Una carta especial</h2>
+          <p class="section-desc">Hacé clic en el sobre para abrirlo y leer lo que preparé para nuestro primer mes.</p>
+          <div class="divider" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+        </div>
+
+        <div class="envelope-stage">
+          <!-- Truco CSS puro: checkbox oculto que abre y cierra el sobre -->
+          <input type="checkbox" id="abrir-sobre" class="envelope-toggle">
+
+          <div class="envelope-wrapper">
+            <label for="abrir-sobre" class="envelope-label" aria-label="Abrir o cerrar sobre de carta">
+              <div class="envelope-box">
+                <div class="envelope-flap"></div>
+                <div class="letter-peek">
+                  <!-- EDITAR AQUÍ: Texto breve que asoma del sobre -->
+                  <span>Para mi niño hermoso...</span>
+                </div>
+                <div class="envelope-pocket"></div>
+                <div class="envelope-bottom"></div>
+                <div class="wax-seal">
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </div>
+              </div>
+            </label>
+
+            <label for="abrir-sobre" class="envelope-hint" style="cursor: pointer;">
+              <span class="hint-open">💌 Toca el sobre para abrir la carta</span>
+              <span class="hint-close">✉️ Toca aquí para guardar la carta</span>
+            </label>
+          </div>
+
+          <!-- Contenido desplegable de la carta -->
+          <article class="letter-sheet">
+            <div class="letter-paper">
+
+              <!-- EDITAR AQUÍ: Saludo -->
+              <h3 class="letter-salutation">Mi amorcito,</h3>
+
+              <!-- EDITAR AQUÍ: Cuerpo de tu carta de aniversario -->
+              <div class="letter-body">
+                <p>
+                 Aun me cuesta creerlo pero ya pasó un mes desde que te volviste el six de mi seven y yo el seven de tu six. No te haces una idea lo feliz que me haces cada día, el como me enamoras con cada risa tuya y tus chistes algunos buenos y otros no tanto.
+                </p>
+                 Siempre te lo he dicho, pero sos el momento favorito de mi día, aquel que después de tener el día más mierda posible, con solo escucharte me haces sonreír y olvidarme de todo lo malo, en tan poco tiempo te volviste una persona demasiado importante para mí, una que con cada palabra o cosa que hace solo provoca que me enamore más y más, amo el como te abres conmigo y cuentas cosas personales que no le has contado a nadie más, el como intentas ayudarme cuando me siento triste, cuando agarras confianza y dices cosas que antes jamás hubieras dicho.
+                <p>
+                  Me encanta tu persona, todo de vos es tan hermoso a mis ojos que no puedo pensar en un futuro donde no esté contigo, porque eres mi persona especial, mi amorcito, mi niño hermoso y lo más importante, mi novio. 
+                </p>
+                No puedo esperar a verte y comerte a besos jiji
+              </div>
+
+              <!-- EDITAR AQUÍ: Despedida y tu firma -->
+              <div class="letter-signature">
+                <span>Con todo mi amor,</span>
+                <span class="handwritten-name">[El Charlie de tu Kirk]</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. NUESTRA HISTORIA (LÍNEA DE TIEMPO)
+         ====================================================================== -->
+    <section id="historia">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Nuestro camino</span>
+          <h2 class="section-title">Nuestra Historia</h2>
+          <p class="section-desc">Cuatro capítulos que cambiaron mi vida para siempre.</p>
+          <div class="divider" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <!-- HITO 1 -->
+          <!-- EDITAR AQUÍ: Fecha, título y descripción del primer hito -->
+          <div class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="timeline-card">
+              <span class="timeline-date">[6 de Marzo]</span>
+              <h3>Cuando te conocí</h3>
+              <p>
+                Yo creo que una de las cosas por las cuales estoy más que agradecida con el Ale es el poder conocerte, porque sin darme cuenta desde ese día cambiaste mi vida.
+              </p>
+            </div>
+          </div>
+
+          <!-- HITO 2 -->
+          <!-- EDITAR AQUÍ: Fecha, título y descripción del segundo hito -->
+          <div class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="timeline-card">
+              <span class="timeline-date">[16 de Octubre]</span>
+              <h3>La leona salió a cazar</h3>
+              <p>
+                Yo creo que nunca en mi vida había estado tan nerviosa como esa noche cuando te mandé eso en ig, el no saber tu reacción, el como te tomarías eso y el miedo a que me terminaras bloqueando por loca, pero por suerte fue todo lo contrario (Recordatorio de que el Mati te hizo spoiler 😠).
+              </p>
+            </div>
+          </div>
+
+          <!-- HITO 3 -->
+          <!-- EDITAR AQUÍ: Fecha, título y descripción del tercer hito -->
+          <div class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="timeline-card">
+              <span class="timeline-date">[31 de Octubre]</span>
+              <h3>Me pediste oficializar</h3>
+              <p>
+                Yo te juro que no creí poder enamorarme más de vos, pero ese día me demostraste lo contrario, el haberme hecho un regalo tan personal, tan pensando para mí, dios, quería llorar de la emoción, de la alegría, te juro que no sé como me logré aguantar.
+              </p>
+            </div>
+          </div>
+
+          <!-- HITO 4 -->
+          <!-- EDITAR AQUÍ: Fecha, título y descripción del cuarto hito -->
+          <div class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="timeline-card">
+              <span class="timeline-date">Hoy</span>
+              <h3>Hoy y siempre</h3>
+              <p>
+                Nuestro primer mesiversario (te juro que así se dice) y no puedo estar más feliz de poder compartir mi vida con vos, de poder pasar mis dias con la persona que más amo y que más aprecio, espero que todos los días que quedan de mi vida puedan ser junto a tí.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. GALERÍA DE RECUERDOS (ESTILO POLAROID)
+         ====================================================================== -->
+    <section id="recuerdos" class="gallery-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Mis recuerditos</span>
+          <h2 class="section-title">Galería de Recuerdos</h2>
+          <p class="section-desc">Fotos de mis momentos especiales.</p>
+          <div class="divider" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+        </div>
+
+        <div class="polaroid-grid">
+          <!-- POLAROID 1 -->
+          <figure class="polaroid">
+            <div class="polaroid-photo">
+              <img src="foto1.png" alt="Pokefoto">
+            </div>
+            <!-- EDITAR AQUÍ: Nota manuscrita debajo de la foto -->
+            <figcaption class="polaroid-caption">Pokefoto</figcaption>
+          </figure>
+
+          <!-- POLAROID 2 -->
+          <figure class="polaroid">
+            <div class="polaroid-photo">
+              <img src="foto2.png" alt="Pokefoto">
+            </div>
+            <!-- EDITAR AQUÍ: Nota manuscrita -->
+            <figcaption class="polaroid-caption">Cuando me dijiste que te habías enamorado aún más</figcaption>
+          </figure>
+
+          <!-- POLAROID 3 -->
+          <figure class="polaroid">
+            <div class="polaroid-photo">
+              <img src="foto3.jpg" alt="Los cracks del Peak">
+            </div>
+            <!-- EDITAR AQUÍ: Nota manuscrita -->
+            <figcaption class="polaroid-caption">Los cracks del Peak</figcaption>
+          </figure>
+
+          <!-- POLAROID 4 -->
+          <figure class="polaroid">
+            <div class="polaroid-photo placeholder-4">
+              <!--
+                EDITAR AQUÍ PARA PONER TU FOTO:
+                <img src="foto4.jpg" alt="Nosotros hoy">
+              -->
+              <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+              <img src="foto4.png" alt="En busca del one piece">
+            </div>
+            <!-- EDITAR AQUÍ: Nota manuscrita -->
+            <figcaption class="polaroid-caption">En busca del one piece (ya nos va a salir)</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. RAZONES POR LAS QUE TE AMO (TARJETAS 3D FLIP)
+         ====================================================================== -->
+    <section id="razones">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Para mi amorchito</span>
+          <h2 class="section-title">Razones por las que te amo</h2>
+          <p class="section-desc">Pasá el mouse o tocá cada tarjeta para descubrir un motivo.</p>
+          <div class="divider" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+        </div>
+
+        <div class="reasons-grid">
+          <!-- TARJETA 1 -->
+          <label class="flip-card">
+            <input type="checkbox" class="flip-checkbox">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="reason-number">01</span>
+                <svg class="reason-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span class="flip-front-hint">Descubrir</span>
+              </div>
+              <div class="flip-back">
+                <!-- EDITAR AQUÍ: Razón 1 -->
+                <p>Por tu risa tan hermosa que me hace sonreir.</p>
+                <span class="flip-back-heart">♥</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- TARJETA 2 -->
+          <label class="flip-card">
+            <input type="checkbox" class="flip-checkbox">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="reason-number">02</span>
+                <svg class="reason-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span class="flip-front-hint">Descubrir</span>
+              </div>
+              <div class="flip-back">
+                <!-- EDITAR AQUÍ: Razón 2 -->
+                <p>Por tus chistes raros que me dan risa.</p>
+                <span class="flip-back-heart">♥</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- TARJETA 3 -->
+          <label class="flip-card">
+            <input type="checkbox" class="flip-checkbox">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="reason-number">03</span>
+                <svg class="reason-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span class="flip-front-hint">Descubrir</span>
+              </div>
+              <div class="flip-back">
+                <!-- EDITAR AQUÍ: Razón 3 -->
+                <p>Porque das todo de vos.</p>
+                <span class="flip-back-heart">♥</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- TARJETA 4 -->
+          <label class="flip-card">
+            <input type="checkbox" class="flip-checkbox">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="reason-number">04</span>
+                <svg class="reason-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span class="flip-front-hint">Descubrir</span>
+              </div>
+              <div class="flip-back">
+                <!-- EDITAR AQUÍ: Razón 4 -->
+                <p>Por como te interesas por mis gustos.</p>
+                <span class="flip-back-heart">♥</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- TARJETA 5 -->
+          <label class="flip-card">
+            <input type="checkbox" class="flip-checkbox">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="reason-number">05</span>
+                <svg class="reason-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span class="flip-front-hint">Descubrir</span>
+              </div>
+              <div class="flip-back">
+                <!-- EDITAR AQUÍ: Razón 5 -->
+                <p>Por ser vos mismo y sentirte feliz por ello.</p>
+                <span class="flip-back-heart">♥</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- TARJETA 6 -->
+          <label class="flip-card">
+            <input type="checkbox" class="flip-checkbox">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="reason-number">06</span>
+                <svg class="reason-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span class="flip-front-hint">Descubrir</span>
+              </div>
+              <div class="flip-back">
+                <!-- EDITAR AQUÍ: Razón 6 -->
+                <p>Porque me haces sentir viva y feliz.</p>
+                <span class="flip-back-heart">♥</span>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span class="footer-heart" aria-hidden="true">♥</span>
+    <p class="footer-title">Hecho con todo mi amor para vos</p>
+    <!-- EDITAR AQUÍ: Tu firma -->
+    <p class="footer-sign">Siempre tuya, Rocio</p>
+    <p class="footer-sub">Nuestro Primer Mes &bull; Y por muchos más</p>
+  </footer>
